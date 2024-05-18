@@ -1,9 +1,11 @@
-print("ROT13 encrypter")
+print("ROT-X encrypter")
 print(" ")
 
 # Prompt user for input text
 text = input("Enter your text: ")
 
+# Getting rot_value
+rot_value = int(input("your rot value: "))
 # Define alphabets
 alphabet_lower = "abcdefghijklmnopqrstuvwxyz"
 alphabet_upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -15,11 +17,11 @@ encoded_text = ""
 def encryption(item):
     if item in alphabet_lower:
         # Calculate new index with wrap-around using modulo operation
-        index = (alphabet_lower.index(item) + 13) % 26
+        index = (alphabet_lower.index(item) + rot_value) % 26
         encoded_item = alphabet_lower[index]
     elif item in alphabet_upper:
         # Calculate new index with wrap-around using modulo operation
-        index = (alphabet_upper.index(item) + 13) % 26
+        index = (alphabet_upper.index(item) + rot_value) % 26
         encoded_item = alphabet_upper[index]
     else:
         # Non-alphabet characters remain unchanged
